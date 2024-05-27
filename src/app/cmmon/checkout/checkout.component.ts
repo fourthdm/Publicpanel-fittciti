@@ -87,3 +87,88 @@ export class CheckoutComponent implements OnInit {
 
 
 }
+
+
+// import { Component } from '@angular/core';
+// import { CartService } from '../services/cart.service';
+// import { OrderService } from '../services/order.service';
+// import { Router } from '@angular/router';
+
+// @Component({
+//   selector: 'app-checkout',
+//   templateUrl: './checkout.component.html',
+//   styleUrls: ['./checkout.component.css']
+// })
+// export class CheckoutComponent {
+//   cartItems: any[] = [];
+//   totalAmount: number = 0;
+//   shippingAddress: string = '';
+
+//   constructor(
+//     private cartService: CartService,
+//     private orderService: OrderService,
+//     private router: Router
+//   ) {
+//     this.cartService.getCartItems().subscribe((data: any[]) => {
+//       this.cartItems = data;
+//       this.totalAmount = this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+//     });
+//   }
+
+//   placeOrder() {
+//     const order = {
+//       cartItems: this.cartItems,
+//       totalAmount: this.totalAmount,
+//       shippingAddress: this.shippingAddress
+//     };
+
+//     this.orderService.placeOrder(order).subscribe(() => {
+//       this.cartService.clearCart().subscribe(() => {
+//         this.router.navigate(['/order']);
+//       });
+//     });
+//   }
+// }
+
+
+// For backend
+
+// const PDFDocument = require('pdfkit');
+// const nodemailer = require('nodemailer');
+
+// exports.placeOrder = async (req, res) => {
+//   // Order creation logic
+
+//   // Generate PDF
+//   const doc = new PDFDocument();
+//   doc.text('Order Details');
+//   // Add order details to PDF
+
+//   const buffers = [];
+//   doc.on('data', buffers.push.bind(buffers));
+//   doc.on('end', () => {
+//     const pdfData = Buffer.concat(buffers);
+
+//     // Send email
+//     const transporter = nodemailer.createTransport({/* SMTP configuration */});
+//     const mailOptions = {
+//       from: 'your-email@example.com',
+//       to: 'customer@example.com',
+//       subject: 'Order Confirmation',
+//       text: 'Thank you for your order!',
+//       attachments: [{ filename: 'order.pdf', content: pdfData }]
+//     };
+
+//     transporter.sendMail(mailOptions, (err, info) => {
+//       if (err) {
+//         console.error(err);
+//         res.status(500).send('Error sending email');
+//       } else {
+//         console.log('Email sent: ' + info.response);
+//         res.status(200).send('Order placed successfully');
+//       }
+//     });
+//   });
+
+//   doc.end();
+// };
