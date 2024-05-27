@@ -1,0 +1,14 @@
+.main {
+    color: white;
+    background-color: #000;
+    cursor: pointer;
+}
+
+.img{
+    width: 100%;
+}
+
+.list {
+    padding: 2%;
+    font-size: 25px;
+}

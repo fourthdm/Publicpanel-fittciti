@@ -1,0 +1,115 @@
+<div class="main"><br>
+    <br><br>
+    <section class="h-100 gradient-form">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div>
+                        <div class="row g-0">
+                            <div class="col-md-2"></div>
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-body p-md-5 mx-md-4">
+
+                                        <div class="text-center">
+                                            <h3>Login</h3> <br>
+                                            <h4>
+                                                <p>Please Login to Your Account</p>
+                                            </h4>
+                                        </div>
+                                        <form [formGroup]="Loginform" (submit)="Login()">
+                                            <div class="col-md-12">
+                                                <label for="Username"> Username :</label>
+                                                <input type="text" class="form-control" id="Username"
+                                                    autocomplete="username" formControlName="Username" value=""
+                                                    placeholder="Enter Username" required>
+                                                <div class="valid-feedback">
+                                                    Your Name
+                                                </div>
+                                            </div><br>
+
+                                            <div class="col-md-12">
+                                                <label for="Password">Password :</label>
+                                                <div class="input-group mb-3">
+                                                    <input [type]="liked ? 'text' : 'password'" type="Password"
+                                                        class="form-control" id="validationCustom03" id="Password"
+                                                        formControlName="Password" placeholder="Enter Password"
+                                                        required>
+                                                    <button class="btn btn-light" type="button" [ngClass]="{
+                                                        'fa-eye-slash': !liked,
+                                                        'fa-eye': liked
+                                                      }" (click)="Show()" id="button-addon2"><i
+                                                            class="fa-solid fa-eye-slash"></i></button>
+                                                </div>
+<!-- 
+                                                <input [type]="liked ? 'text' : 'password'" type="Password"
+                                                    class="form-control" id="validationCustom03" id="Password"
+                                                    formControlName="Password" placeholder="Enter Password" required>
+                                                <span [ngClass]="{
+                                                        'fa-eye-slash': !liked,
+                                                        'fa-eye': liked
+                                                      }" (click)="Show()"> <i class="fa-solid fa-eye-slash"></i></span> -->
+                                            </div>
+                                            <br>
+
+                                            <div class="text-center pt-1 mb-5 pb-1">
+                                                <button class="btn btn-success btn-block fa-lg gradient-custom-2 mb-3"
+                                                    type="submit">Log in</button>
+                                            </div>
+                                        </form>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="container">
+
+        <div class="row">
+            <div class="col-md-6"></div><br>
+            <div class="col-md-6">
+
+                <form>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <label for="name"> Username :</label>
+                        <input type="text" class="form-control" id="Name" formControlName="Name" value=""
+                            placeholder="Enter Your Name " required>
+                        <div class="valid-feedback">
+                            Your Name
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-10">
+                        <label for="name">Password :</label>
+                        <input type="email" class="form-control" id="validationCustom03" id="Email"
+                            formControlName="Email" placeholder="Enter Your Email Address.." required>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-10" style="text-align: center;">
+                        <button class="btn btn-success" style="color: white;" type="submit">Login</button> <br> <br>
+                    </div>
+
+                    <br><br>
+                </form>
+            </div><br>
+
+        </div>
+
+
+    </div> -->
+    <br>
+</div>

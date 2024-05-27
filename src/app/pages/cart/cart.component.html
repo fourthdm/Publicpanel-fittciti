@@ -1,0 +1,66 @@
+<div class="main">
+  <div class="container">
+    <br><br><br>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"><b>Sr.No </b> </th>
+          <th scope="col"><b>Product Name </b> </th>
+          <th scope="col"><b>Price </b> </th>
+          <th scope="col"><b>Discount Price </b> </th>
+          <th scope="col"><b>Quantity </b> </th>
+          <th scope="col"><b>Total </b> </th>
+          <th scope="col"><b>Action </b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of this._cart.cartItemList; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td style="font-size:12px;">
+            <p>{{item.Product_Name}}</p>
+          </td>
+          <!-- <td> <img style="width: 120px;" src="{{item.image}}" alt=""> </td> -->
+          <th>{{item.Price}}</th>
+          <td>{{item.pricewithdiscount}}</td>
+
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" (click)="decreaseQuantity(item.Product_id)" class="btn btn-danger">-</button>
+              <button type="button" style="color:white;" class="btn btn-outline-dark">{{item.Quantity}}</button>
+              <button type="button" (click)="increaseQuantity(item.Product_id)" class="btn btn-success">+</button>
+            </div>
+          </td>
+
+          <!-- <td>
+            <div class="quantity-group">
+              <button (click)="increaseQuantity(item.Product_id)">+</button>
+              <p>{{item.Quantity}}</p>
+              <button (click)="decreaseQuantity(item.Product_id)">-</button>
+            </div>
+          </td> -->
+
+          <!-- <td>{{ products.pricewithdiscount * products.Quantity }}</td> -->
+          <td>{{item.Total}}</td>
+          <td><button (click)="removeItem(item.Product_id)" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
+          </td>
+          <br>
+          <button class="btn btn-success" (click)="placeOrder()">Place Order</button>
+        </tr>
+        <tr>
+          <td colspan="1"></td>
+          <td> <button (click)="emptycart(cartItemList)" class="btn btn-danger">Empty Cart</button> </td>
+          <td> <button [routerLink]="['/product']" class="btn btn-primary">Shop More</button> </td>
+          <td> <button class="btn btn-success" [routerLink]="['/checkout']">Checkout</button> </td>
+          <!-- <td><strong>Total : &#8377; {{T}}</strong></td> -->
+          <!-- <button (click)="paynow()">Pay <span><strong>Total Price With Discount : ${{grandTotal}}</strong></span> </button> -->
+          <td><strong>Total Price With Discount : &#8377; {{finalTotal}} </strong></td>
+          <!-- <td>{{finalTotal}}</td> -->
+          <td><strong>You Save </strong><b> &#8377; {{Savers}} </b></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="main">
+    <br><br><br><br><br>
+    <div class="container">
+        <div class="row" *ngFor="let p of productList">
+            <div class="col-md-6">
+                <div id="carouselExample-{{p.id}}" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item" *ngFor="let image of p.mainimage.split(','); let i = index"
+                            [class.active]="i === 0">
+                            <img [src]="image" class="d-block w-100" alt="Product Image">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExample-{{p.id}}" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExample-{{p.id}}" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <br><br>
+            </div>
+            <div class="col-md-6">
+                <br>
+                <h4 class="card-title"><b>{{p.Product_Name}}</b></h4> <br>
+                <h6>{{p.Weight}}</h6>
+                <h4 style="color: red;">&#8377; {{p.Price}}</h4>
+                <p>{{p.discount}}% Discount</p>
+                <p>&#8377; {{p.pricewithdiscount}}</p>
+                <br>
+                <br> <br><br>
+            </div>
+            <h5> <b>Description :</b></h5>
+            <p>{{p.description}} </p> <br>
+            <h5><b>Ingredients :</b></h5>
+            <p>{{p.ingredients}}</p>
+            <br>
+            <h5><b>Benefits:</b></h5>
+            <p>{{p.benefits}}</p>
+            <br>
+            <h5>Availability :</h5>
+            <p *ngIf="p.status == 0 ">{{p.status}}</p>
+
+        </div>
+        <br>
+    </div>
+    <br>
+
+    <div class="container">
+
+        <div class="row" *ngIf="similarProducts.length > 0">
+            <h5>Similar Product : </h5>
+            <div class="col-md-2" *ngFor="let product of similarProducts">
+                <div>
+                    <a href="" target="_blank" [routerLink]="['/viewproduct',product.id]"><img style="width: 100%;"
+                            [src]="product.image" alt="Similar Product Image"></a>
+                    <br>
+                    <h6>{{ product.Product_Name }}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

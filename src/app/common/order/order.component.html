@@ -1,0 +1,101 @@
+<div class="main">
+    <div class="container"> <br><br>
+        <div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"><b>Sr.No </b> </th>
+                        <th scope="col"><b>Order-id </b> </th>
+                        <th scope="col"><b>Order_Date </b> </th>
+                        <th scope="col"><b>Product Name </b> </th>
+                        <th scope="col"><b>Total_Amount </b> </th>
+                        <th scope="col"><b>Quantity </b> </th>
+                        <th scope="col"><b>Cancel Order </b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of this.orderData; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>
+                            <p>{{item.id}}</p>
+                        </td>
+                        <td>
+                            <p>{{item.Order_date|date}}</p>
+                        </td>
+                        <td style="font-size:12px;">
+                            <p>{{item.Product_Name}}</p>
+                        </td>
+                        <td>{{item.Total_amount}}</td>
+                        <!-- <td>{{ products.pricewithdiscount * products.Quantity }}</td> -->
+                        <td>{{item.Quantity}}</td>
+                        <td><button (click)="(item.id)" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="row">
+                <div class="col-sm-2"> {{finalTotal}}
+                    <span class="btn btn-success" (click)="paynow()">Pay Now</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="main">
+    <div class="container">
+        <br><br><br>
+        <ng-container *ngIf="orders.length != 0 ">
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"><b>Sr.No </b> </th>
+                            <th scope="col"><b>Product Name </b> </th>
+                            <th scope="col"><b>Price </b> </th>
+                            <th scope="col"><b>Discount Price </b> </th>
+                            <th scope="col"><b>Quantity </b> </th>
+                            <th scope="col"><b>Total </b> </th>
+                            <th scope="col"><b>Action </b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of this._cart.cartItemList; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td style="font-size:12px;">
+                                <p>{{item.Product_Name}}</p>
+                            </td>
+                            <!-- <td> <img style="width: 120px;" src="{{item.image}}" alt=""> </td> -->
+                            <th>{{item.Price}}</th>
+                            <td>{{item.pricewithdiscount}}</td>
+
+                            <!-- <td>{{ products.pricewithdiscount * products.Quantity }}</td> -->
+                            <td>{{item.Total}}</td>
+                            <td><button (click)="(item.Product_id)" class="btn btn-danger"><i
+                                        class="bi bi-trash3"></i></button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </ng-container>
+
+        <!-- <ng-container *ngIf="products.length == 0">
+  <div class="card text-bg-dark" style="width: 34rem;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzSvgClAcM6AcRgKgFjE30AdTYWJitkZsMOA&usqp=CAU"
+      alt="">
+    <div class="card-img-overlay">
+      <h5 class="card-title">My Cart</h5>
+    </div>
+    <p class="card-text">Cart is Empty!!!</p>
+    <div style="display: flex; justify-content: space-around;">
+      <button routerLink="product" class="btn btn-info">Shop Now</button>
+    </div>
+  </div>
+</ng-container> -->
+    </div>
+</div>

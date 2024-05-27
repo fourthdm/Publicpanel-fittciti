@@ -1,0 +1,78 @@
+<div class="main"><br><br><br><br>
+    <div class="container"><br>
+        <h1 style="text-align: center;">Products for Selling</h1> <br>
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <label for="batch_date">Category Name : <br>
+                    <select name="category_id" id="category_id" [(ngModel)]="Category_id" class="form-select"
+                        aria-label="Multiple select example">
+                        <option *ngFor="let c of AllCategory " [value]="c.Category_id">{{c.Category_Name}}</option>
+                    </select>
+                </label>
+                <br><br><br>
+                <label for="batch_date">Brand Name : <br>
+                    <select name="brand_id" id="brand_id" [(ngModel)]="Brand_id" class="form-select"
+                        aria-label="Multiple select example">
+                        <option selected> All Brands</option>
+                        <option *ngFor="let b of AllBrand " [value]="b.Brand_id">{{b.Brand_Name}}</option>
+                    </select>
+                </label>
+
+                <br><br>
+                <label>
+                    <button class="btn btn-outline-success" (click)="Filter()">Filter</button>
+                </label>
+            </div>
+
+            <div class="col-md-9">
+                <div class="container">
+
+                    <div class="alert" *ngIf="productList.length == 0">
+                        <div class="text-center">
+                            <h2>Product Not Found</h2>
+                            <p>Please remove your filters to view all products.</p>
+                            <button class="btn btn-success" (click)="in2()">All Products</button>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="productList.length >0">
+                        <div class="col-lg-4 col-md-6"
+                            *ngFor="let p of productList| paginate: { itemsPerPage: 9, currentPage: pro }, let i=index ">
+                            <div class="container">
+                                <div class="card">
+                                    <div class="">
+                                        <div class="text-end">
+                                            <i class="fa fa-heart" (click)="toggleWishlist(p)"
+                                                [ngStyle]="getButtonStyle(p)"></i>
+                                        </div>
+
+                                        <a href="" [routerLink]="['/viewproduct',p.id]"> <img [src]="p.image"
+                                                style="width: 100%;" alt=""></a>
+
+                                        <div class="card-body">
+                                            <p>{{p.Product_Name}} <br> <span>{{p.Weight}}</span></p>
+                                            <p>Rs <s style="color: red;">{{p.Price}} </s> <span
+                                                    style="margin-left: 5%;">
+                                                    <b>{{p.discount}}%</b></span> </p>
+                                            <p>Rs {{p.pricewithdiscount}}</p>
+                                            <button class="btn btn-secondary" (click)="addToCart(p)">
+                                                <i class="fa-solid fa-cart-plus fa-lg"></i>
+                                                Add To Cart</button>
+                                        </div>
+                                    </div>
+                                </div> <br>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <pagination-controls (pageChange)="pro = $event"></pagination-controls>
+                        </div>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>

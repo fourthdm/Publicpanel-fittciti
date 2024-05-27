@@ -1,0 +1,87 @@
+<div class="main"><br><br><br>
+    <div class="container">
+        <br><br>
+        <h1 style="text-align: center;">CONTACT US</h1> <br><br>
+        <div class="row">
+            <div class="col-md-6">
+                <h4><b> Viman Nagar</b></h4>
+                <p>
+                    Optimus Building, Shop no. 3, B-Wing, Lane no. 15, Mhada Colony, Mhada Road, Society, opp. LUNKAD
+                    QUEENSLAND, Viman Nagar, Pune, Maharashtra 411014</p>
+                <br>
+                <h4>Contact Form</h4>
+                <form [formGroup]="enquiryform" (submit)="Addcontact()">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <label for="Name"> Name :</label>
+                        <input type="text" class="form-control" id="Name" formControlName="Name" value=""
+                            placeholder="Enter Your Name " required>
+                        <div class="valid-feedback">
+                            Your Name
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-10">
+                        <label for="Email">Email ID :</label>
+                        <input type="email" class="form-control" id="validationCustom03" id="Email"
+                            formControlName="Email" placeholder="Enter Your Email Address.." required>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-10">
+                        <label for="Mobileno"> Contact No. :</label>
+                        <input type="number" class="form-control" id="validationCustom02" value="" id="Mobileno"
+                            formControlName="Mobileno" placeholder="Enter your Mobile number" required>
+                        <div class="valid-feedback">
+                            Your number
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 ">
+                        <label for="Message">Message :</label>
+                        <textarea type="email" class="form-control" id="validationCustom03" id="Message"
+                            formControlName="Message" placeholder="Message" required></textarea>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-1"></div>
+                    <!-- <div class="col-md-10 ">
+                        <label for="Message">Date :</label>
+                        <input type="date" class="form-control" id="validationCustom03" id="Date"
+                            formControlName="Date" placeholder="Date" required>
+                    </div> -->
+                    <br>
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10" style="text-align: center;">
+                        <button class="btn btn-success" style="color: white;" type="submit">
+                            Submit Now</button> <br> <br>
+                    </div>
+                    <br><br>
+                </form>
+            </div><br>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d60513.721997898356!2d73.91165!3d18.569186!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c139e0d55f19%3A0x539c3e630952c231!2sFittciti!5e0!3m2!1sen!2sin!4v1701323991810!5m2!1sen!2sin"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+    </div>
+</div>
