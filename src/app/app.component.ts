@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fittciti';
+
+  scrolltop = document.getElementById("scrolltop");
+  root = document.documentElement;
+
+  scroll() {
+    this.root.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
 }

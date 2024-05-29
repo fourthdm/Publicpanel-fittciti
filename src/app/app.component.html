@@ -1,5 +1,27 @@
 <app-navbar></app-navbar> <br><br>
 <!-- <app-nav></app-nav> -->
+<ul class="menu">
+    <li></li>
+    <li>
+        <p class="animate__animated animate__wobble animate__infinite">
+            <a href="#" [routerLink]="['/product']" (click)="scroll()" data-mdb-placement="top"
+                data-mdb-toggle="tooltip" title="Shop Now"> <i class="fa-solid fa-cart-plus facebook"></i>
+            </a>
+        </p>
+    </li>
 
+    <li>
+        <p>
+            <a href="https://wa.me/+918484960062" target="_blank" data-mdb-toggle="tooltip" data-mdb-placement="top"
+                title="Connect Through Whatsapp "> <i class="fa-brands fa-whatsapp icon"></i>
+            </a>
+        </p>
+    </li>
+
+
+
+</ul>
+
+<button class="button" (click)="scroll()"><i class="fa-solid fa-square-caret-up"></i></button>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
