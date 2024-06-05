@@ -130,8 +130,21 @@ p {
     margin-bottom: 55rem;
 } */
 
-@media(max-width:439px) {
+@media screen and (max-width:439px) {
+    .btttn {
+        display: none;
+    }
 
+    .newbtn { margin-top: -10%;
+        width: 150px;
+        color: white;
+        background-color: #ff4b23;
+        cursor: pointer;
+        text-align: center;
+        z-index: 1;
+        transform: translateX(71%) translateY(-50%) skew(-15deg);
+        display: block;
+    }
 
     /* .imagelast {
         margin-top: 40%;
@@ -153,10 +166,19 @@ p {
     height: 300px;
 } */
 
+/* .newbtn {
+    display: none;
+} */
+
+.newbtn {
+    display: none;
+   
+}
+
 .btttn {
     position: absolute;
     top: 85%;
-    right: 0%;
+    right: -9%;
     width: 400px;
     color: white;
     background-color: #ff4b23;
@@ -174,7 +196,6 @@ p {
     top: 50%;
     left: 50%;
     background-color: #ff4b23;
-   
 }
 
 .btn::before {
@@ -191,17 +212,10 @@ p {
 } */
 
 @media(max-width:768px) {
-
-    .Qa {
-        display: none;
-    }
-}
-
-
-/* @media(max-width:1024px) {
-    .imagelast {
-        display: none;
-        height: 2rem;
+    .btttn {
+        margin-top: -42%;
+        right: -15%;
+        width: 250px;
     }
 
     .Qa {
@@ -209,8 +223,16 @@ p {
     }
 }
 
-@media(max-width:1440px) {
+@media(max-width:1024px) {
+    /* .btttn{
+        margin-top: -20%;
+        right: -13%;
+        width: 300px;
+    }  */
+}
+
+/* @media(max-width:1440px) {
         .imagelast{
             height: 3rem;
         }
-} */
+}  */

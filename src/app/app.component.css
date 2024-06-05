@@ -70,7 +70,7 @@
   
   
   .fa-square-caret-up {
-    color: #0f51ad;
+    color: rgb(12, 120, 174);
   }
   
   /* new hover css for form and whatsapp */
@@ -132,9 +132,7 @@
       /* right: 0; */
     }
   
-    .menu {
-      display: none;
-    }
+    
   }
   
   /* @media (max-width:1440px){

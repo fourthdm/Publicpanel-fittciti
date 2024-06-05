@@ -17,4 +17,15 @@ export class AppComponent {
       behavior: "smooth"
     })
   }
+
+  //   window.fbAsyncInit = function() {
+  //     FB.init({ 
+  //       appId: '{your-app-id}',
+  //       status: true, 
+  //       cookie: true, 
+  //       xfbml: true,
+  //       version: 'v2.4'
+  //     });
+  // };
+
 }
