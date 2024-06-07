@@ -36,12 +36,10 @@
                                                         formControlName="Password" placeholder="Enter Password"
                                                         required>
                                                     <button class="btn btn-light" type="button" [ngClass]="{
-                                                        'fa-eye-slash': !liked,
-                                                        'fa-eye': liked
-                                                      }" (click)="Show()" id="button-addon2"><i
+                                                        'fa-eye-slash': !liked,'fa-eye': liked }" (click)="Show()" id="button-addon2"><i
                                                             class="fa-solid fa-eye-slash"></i></button>
                                                 </div>
-<!-- 
+                                                <!-- 
                                                 <input [type]="liked ? 'text' : 'password'" type="Password"
                                                     class="form-control" id="validationCustom03" id="Password"
                                                     formControlName="Password" placeholder="Enter Password" required>
