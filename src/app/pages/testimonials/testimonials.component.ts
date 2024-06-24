@@ -21,9 +21,13 @@ export class TestimonialsComponent implements OnInit {
   }
 
   fetchGoogleReviews() {
-    const placeId = 'ChIJrTLr-GyuEmsRBfy61i59si0'; // Replace with the actual place ID
-    const apiKey = 'AIzaSyBqK-l4JiLYcOyqkl1epfDNUy3rajT-Il8'; // Replace with your API key
-    const url = `https://maps.googleapis.com/maps/api/place/details/json`;
+    // const placeId = 'ChIJ05IRjKHxEQ0RJLV_5NLdK2w'; // Replace with the actual place ID
+    // const apiKey = 'AIzaSyCJl4xqnDIODTC4Bj8Of_Tnzw5FqUXcuA0'; // Replace with your API key
+    // const url = `https://maps.googleapis.com/maps/api/place/details/json`;
+
+    const placeId = 'ChIJ05IRjKHxEQ0RJLV_5NLdK2w'; // Replace with the actual place ID
+    const apiKey = 'AIzaSyCJl4xqnDIODTC4Bj8Of_Tnzw5FqUXcuA0'; // Replace with your API key
+    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`;
 
     let params = new HttpParams()
       .set('place_id', placeId)
@@ -31,9 +35,9 @@ export class TestimonialsComponent implements OnInit {
       .set('key', apiKey)
       .set('callback', 'JSONP_CALLBACK');
 
-    this.http.jsonp(url,'callback').pipe(
+    this.http.jsonp(url, 'callback').pipe(
       map((response: any) => response.result.reviews)
-    ).subscribe((reviews: any[]) => { 
+    ).subscribe((reviews: any[]) => {
       this.googleReviews = reviews;
     });
   }
@@ -44,12 +48,12 @@ export class TestimonialsComponent implements OnInit {
   // }
 
   // fetchGoogleReviews() {
-  //   const placeId = 'YOUR_PLACE_ID'; // Replace with the actual place ID
-  //   const apiKey = 'YOUR_API_KEY'; // Replace with your API key
+  //   const placeId = 'ChIJ05IRjKHxEQ0RJLV_5NLdK2w'; // Replace with the actual place ID
+  //   const apiKey = 'AIzaSyCJl4xqnDIODTC4Bj8Of_Tnzw5FqUXcuA0'; // Replace with your API key
   //   const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${apiKey}`;
 
   //   this.http.get(url).subscribe((data: any) => {
-  //     this.reviews = data.result.reviews;
+  //     this.googleReviews = data.result.reviews;
   //   });
   // }
 }

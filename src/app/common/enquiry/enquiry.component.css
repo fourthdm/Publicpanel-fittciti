@@ -10,3 +10,32 @@ img {
 .card {
     border: white;
 }
+
+
+/* .inputss {
+    border: 0;
+    border-bottom: dashed 2px black;
+    outline: 0;
+}
+
+.formcardd select {
+    outline: 0;
+}
+
+.formcardd label {
+    color: black;
+}
+
+.formcardd{
+    border: solid 1px black;
+}
+
+.cardbody{
+    padding: 2%;
+}
+
+.column {
+    width: 50%;
+    height: auto; 
+  }
+   */

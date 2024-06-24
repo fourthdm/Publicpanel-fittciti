@@ -8,7 +8,9 @@ import { CartComponent } from './pages/cart/cart.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { HttpClientModule, HttpClientJsonpModule  } from '@angular/common/http';
+
+
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NavbarComponent } from './common/navbar/navbar.component';
@@ -88,7 +90,7 @@ import { BuildComponent } from './brand/build/build.component';
     NgxPaginationModule,
     LightgalleryModule,
     CarouselModule.forRoot(),
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -58,18 +58,18 @@ export class NavbarComponent implements OnInit {
     this._route.navigate(['/login']);
   }
 
-  searchProduct(query: KeyboardEvent) {
-    if (query) {
-      const element = query.target as HTMLInputElement;
-      this._rest.searchProduct(element.value).subscribe((result: any) => {
+  // searchProduct(query: KeyboardEvent) {
+  //   if (query) {
+  //     const element = query.target as HTMLInputElement;
+  //     this._rest.searchProduct(element.value).subscribe((result: any) => {
 
-        if (result.length > 5) {
-          result.length = length
-        }
-        this.searchResult = result;
-      })
-    }
-  }
+  //       if (result.length > 5) {
+  //         result.length = length
+  //       }
+  //       this.searchResult = result;
+  //     })
+  //   }
+  // }
   hideSearch() {
     this.searchResult.length == 0;
   }

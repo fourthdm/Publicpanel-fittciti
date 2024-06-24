@@ -25,36 +25,31 @@ export class RestService {
   }
 
   Registeration(data: any) {
-    return this.http.post(this.url + '/Registeration', data);
+    return this.http.post(this.url + '/Registeration', data); //Registeration form
   }
 
   enquiry(data: any) {
-    return this.http.post(this.url + '/Contact', data);
+    return this.http.post(this.url + '/Contact', data); //Fill the contact form 
   }
 
   category() {
-    return this.http.get(this.url + '/Allcategory')
+    return this.http.get(this.url + '/Allcategory') //All category
   }
 
   brand() {
-    return this.http.get(this.url + '/Allbrand');
+    return this.http.get(this.url + '/AllBrands'); //All Brands
   }
 
   products() {
-    return this.http.get(this.url + '/Product');
-  }
-
-  searchProduct(query: string) {
-    // return this.http.get(`http://localhost:5000/Product?q= ${query}`);
-    return this.http.get(this.url + '/Product?q=${query}')
+    return this.http.get(this.url + '/AllProducts'); //All Products
   }
 
   homeproduct() {
-    return this.http.get(this.url + '/homeProduct');
+    return this.http.get(this.url + '/homeProduct'); //Products for Homepage 6 products...
   }
 
   productwithmain(id: string) {
-    return this.http.get(this.url + '/Productwithimages/' + id);
+    return this.http.get(this.url + '/product/' + id); //Viewproductby specificId...
   }
 
   viewproductsss(product_id: string) {
@@ -66,9 +61,8 @@ export class RestService {
   // }
 
   bycategoryandbrand(data: any) {
-    return this.http.post(this.url + '/FillterProducts', data);
+    return this.http.post(this.url + '/FillterProducts', data); //
   }
-
 
   bybrandid(Brand_id: number) {
     return this.http.get(this.url + '/Productbybrand/' + Brand_id);
@@ -179,5 +173,11 @@ export class RestService {
     // const data = { Cart_id: Cart_id, orders: orders };
     return this.http.post(this.url + '/place-order', { headers })
   }
+
+
+  // searchProduct(query: string) {
+  //   return this.http.get(this.url + '/Product?q=${query}')
+  // }
+
 
 }
