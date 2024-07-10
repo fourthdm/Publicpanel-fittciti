@@ -74,7 +74,7 @@ export class ProductComponent implements OnInit {
 
   getCategory() {
     this._rest.category().subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       this.AllCategory = data.data;
     }, (err: any) => {
       console.log(err);
@@ -83,7 +83,7 @@ export class ProductComponent implements OnInit {
 
   getbrand() {
     this._rest.brand().subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       this.AllBrand = data.data;
     }, (err: any) => {
       console.log(err);

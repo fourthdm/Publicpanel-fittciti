@@ -1,6 +1,6 @@
 <div class="main"><br><br><br>
     <div class="container">
-        <br><br>
+        <br>
         <h1 style="text-align: center;">CONTACT US</h1> <br><br>
         <div class="row">
             <div class="col-md-6">
@@ -10,7 +10,122 @@
                     QUEENSLAND, Viman Nagar, Pune, Maharashtra 411014</p>
                 <br>
                 <h4>Contact Form</h4>
-                <form [formGroup]="enquiryform" (submit)="Addcontact()">
+
+                <form [formGroup]="enquiryform" (ngSubmit)="Addcontact()">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <label for="Name">Name:</label>
+                        <input type="text" class="form-control" id="Name" formControlName="Name"
+                            placeholder="Enter Your Name" required>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <label for="Email">Email ID:</label>
+                        <input type="email" class="form-control" id="Email" formControlName="Email"
+                            placeholder="Enter Your Email Address" required>
+                    </div>
+
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <label for="Mobileno">Contact No.:</label>
+                        <input type="text" class="form-control" id="Mobileno" formControlName="Mobileno"
+                            placeholder="Enter your Mobile number" required>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <label for="Products">I'm interested in knowing about Products</label>
+                        <select multiple class="form-control" id="Products" formControlName="Products">
+                            <option *ngFor="let product of AllProduct" [value]="product.Product_Name">{{
+                                product.Product_Name }}</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">From
+                        <label for="Categories">Categories</label>
+                        <select multiple class="form-control" id="Categories" formControlName="Categories">
+                            <option *ngFor="let category of AllCategory" [value]="category.Category_Name">{{
+                                category.Category_Name }}</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">And
+                        <label for="Brands">Brands:</label>
+                        <select multiple class="form-control" id="Brands" formControlName="Brands">
+                            <option *ngFor="let brand of AllBrand" [value]="brand.Brand_Name">{{ brand.Brand_Name }}
+                            </option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10" style="text-align: center;">
+                        <button class="btn btn-success" type="submit">Submit Now</button>
+                    </div>
+                    <br><br>
+                </form>
+
+
+                <!-- <form [formGroup]="enquiryform" (ngSubmit)="Addcontact()">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <label for="Name"> Name :</label>
+                        <input type="text" class="form-control" id="Name" formControlName="Name"
+                            placeholder="Enter Your Name" required>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <label for="Email">Email ID :</label>
+                        <input type="email" class="form-control" id="Email" formControlName="Email"
+                            placeholder="Enter Your Email Address" required>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <label for="Mobileno"> Contact No. :</label>
+                        <input type="text" class="form-control" id="Mobileno" formControlName="Mobileno"
+                            placeholder="Enter your Mobile number" required>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <label for="Message">Message :</label>
+                        <div style="display: flex;">
+                            <p>I'm interested in knowing about Products </p>
+                            <select style="width: 40%;" class="form-control" id="product" formControlName="Product"
+                                required>
+                                <option value="All">All Products</option>
+                                <option *ngFor="let product of AllProduct" [value]="product.Product_Name">{{
+                                    product.Product_Name }}</option>
+                            </select>
+                        </div>
+                        <div style="display: flex;">from Category
+                            <select class="form-control" id="category_id" formControlName="Category" required>
+                                <option value="All">All Categories</option>
+                                <option *ngFor="let category of AllCategory" [value]="category.Category_Name">{{
+                                    category.Category_Name }}</option>
+                            </select>
+                            And Brand
+                            <select class="form-control" id="brand_id" formControlName="Brand" required>
+                                <option value="All">All Brands</option>
+                                <option *ngFor="let brand of AllBrand" [value]="brand.Brand_Name">{{ brand.Brand_Name }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10" style="text-align: center;">
+                        <button class="btn btn-success" type="submit">Submit Now</button>
+                    </div>
+                    <br><br>
+                </form> -->
+
+                <!-- <form [formGroup]="enquiryform" (submit)="Addcontact()">
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
                         <label for="Name"> Name :</label>
@@ -46,29 +161,59 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-10 ">
                         <label for="Message">Message :</label>
-                        <p type="text" name="" formControlName="Message" id="Message">Thanks for visiting fittciti ,
-                            the prducts of brand <span><input type="text" name="" formControlName="Message" style="outline: 0;border: 0;"
-                                    id="Message">..... </span> and category ..... product name .....</p>
+                        <p type="text" name="" formControlName="Message" id="Message">I'm interested in knowing about
+                            Products<span><input type="text" name="" formControlName="Message"
+                                    style="outline: 0;border: 0;" id="Message">..... </span> form Could you provide
+                            additional details about Products
+                        </p>
 
-                        <!-- <textarea name="" id="Message" class="form-control" id="validationCustom03">Thanks for visiting fittciti ,
-                            the prducts of brand .....  and category ..... product name ...... </textarea> -->
 
-                        <!-- <textarea type="text" id="Message"
-                        formControlName="Message">Thanks for visiting fittciti ,
-                            the prducts of brand .....  and category ..... product name ...... </textarea> -->
+                        <div style="display: flex;">
+                            <p>I'm interested in knowing about Products </p>
+                            <select style="width: 40%;" class="product" name="Message" id="Message"
+                                formControlName="Message" aria-label="Multiple select example">
+                                <option value="All">All Products</option> 
+                                <option *ngFor="let b of AllProduct" [value]="b.Product_Name">{{b.Product_Name}}</option>
 
-                        <!-- <textarea type="text" class="form-control" id="validationCustom03" id="Message"
-                            formControlName="Message" placeholder="Message" required></textarea> -->
+                            </select>
+
+                            <select data-mdb-select-init multiple>
+                                <option *ngFor="let b of AllProduct" type="checkbox" [value]="b.id">{{b.Product_Name}}
+                                </option>
+                            </select>
+                            <label class="form-label select-label">Category</label>
+
+                        </div>
+
+                        <div style="display: flex;">from Category
+                            <label for="category_id">
+                                <select name="category_id" id="category_id" [(ngModel)]="Category_id"
+                                formControlName="Message"  class="form-select" placeholder="All Category" aria-label="Multiple select example">
+                                    <option value="All">All Categories</option> 
+                                    <option *ngFor="let c of AllCategory" [value]="c.Category_id">{{c.Category_Name}}
+                                    </option>
+                                </select>
+                            </label>
+                            And Brand
+
+                        </div>
+                        <label for="brand_id">
+                            <select name="brand_id" id="brand_id" [(ngModel)]="Brand_id" class="form-select"
+                            formControlName="Message"placeholder="All Brand" aria-label="Multiple select example">
+                                <option value="All">All Brands</option> 
+                                <option *ngFor="let b of AllBrand" [value]="b.Brand_id">{{b.Brand_Name}}</option>
+                            </select>
+                        </label>
                     </div>
                     <br>
                     <div class="col-md-1"></div>
 
                     <div class="col-md-1"></div>
-                    <!-- <div class="col-md-10 ">
+                    <div class="col-md-10 ">
                         <label for="Message">Date :</label>
                         <input type="date" class="form-control" id="validationCustom03" id="Date"
                             formControlName="Date" placeholder="Date" required>
-                    </div> -->
+                    </div>
                     <br>
                     <div class="col-md-1"></div>
 
@@ -78,7 +223,8 @@
                             Submit Now</button> <br> <br>
                     </div>
                     <br><br>
-                </form>
+                </form> -->
+
             </div><br>
             <div class="col-md-6">
                 <div class="card">

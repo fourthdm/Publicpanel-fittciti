@@ -92,8 +92,7 @@
                                                 style="width: 100%;" alt=""></a>
 
                                         <div class="card-body">
-                                            <p [ngStyle]="getStyle(p)">{{ p.status == '1' ? '' : 'Out of Stock'}}
-                                            </p>
+                                            <p [ngStyle]="getStyle(p)">{{ p.status == '1' ? '' : 'Out of Stock'}}</p>
                                             <p>{{p.Product_Name}} <br> <span>{{p.Weight}}</span></p>
                                             <p>Rs <s style="color: red;">{{p.Price}} </s> <span
                                                     style="margin-left: 5%;">

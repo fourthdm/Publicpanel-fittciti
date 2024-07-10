@@ -126,7 +126,7 @@ export class ViewproductComponent implements OnInit {
 
   getSimilarProducts(product_id: string) {
     this._rest.viewproductsss(product_id).subscribe((similarData: any) => {
-      console.log(similarData);
+      // console.log(similarData);
       this.similarProducts = similarData;
     }, (error: any) => {
       console.error('Error fetching similar products:', error);
@@ -136,5 +136,16 @@ export class ViewproductComponent implements OnInit {
   addToCart(product: any) {
     this._cart.addtoCart(product);
   }
-  
+
+  getStyle(product: any): any {
+    if (product.status == "1") {
+      return {
+        'color': 'green',
+      }
+    } else if (product.status == "0") {
+      return {
+        'color': 'red',
+      }
+    }
+  }
 }

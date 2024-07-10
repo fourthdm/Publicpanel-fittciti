@@ -17,8 +17,9 @@ export class RestService {
   token = ''
   // cartData:any[]=[];
 
-  url = 'http://localhost:5000';
+  // url = 'http://localhost:5000';
   // url= 'https://adminpanel.fourthdm.com/node';
+  url= 'https://adminpanel.fittciti.in/api';
 
   Login(data: any) {
     return this.http.post(this.url + '/login', data);

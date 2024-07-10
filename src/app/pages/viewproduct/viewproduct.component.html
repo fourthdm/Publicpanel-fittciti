@@ -64,64 +64,83 @@
     <br>
 </div> -->
 
-
-<br>
-<div class="container">
-    <div class="row" *ngFor="let p of productList">
-        <div class="col-md-6">
-            <div id="carouselExampleIndicators" class="carousel slide">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+<!-- //working -->
+<div class="main">
+    <br><br> <br><br>
+    <div class="container">
+        <div class="row" *ngFor="let p of productList">
+            <div class="col-md-6">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="1000">
+                            <img [src]="p.mainimage" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="1000">
+                            <img [src]="p.tableimage" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="1000">
+                            <img [src]="p.backimage" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="1000">
-                        <img [src]="p.mainimage" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item" data-bs-interval="1000">
-                        <img [src]="p.tableimage" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item" data-bs-interval="1000">
-                        <img [src]="p.backimage" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                <br><br>
             </div>
-            <br><br>
-        </div>
-        <div class="col-md-6">
+            <div class="col-md-6">
+                <br>
+                <h4 class="card-title"><b>{{p.Product_Name}}</b></h4> <br>
+                <h6>{{p.Weight}}</h6>
+                <h4 style="color: red;">&#8377; {{p.Price}}</h4>
+                <p>{{p.discount}}% Discount</p>
+                <p>&#8377; {{p.pricewithdiscount}}</p>
+                <br> <button class="btn btn-secondary" (click)="addToCart(p)">
+                    <i class="fa-solid fa-cart-plus fa-lg"></i>
+                    Add To Cart</button>
+                <br> <br><br>
+            </div>
+            <h5> <b>Description :</b></h5>
+            <p>{{p.description}} </p> <br>
+            <h5><b>Ingredients :</b></h5>
+            <p>{{p.ingredients}}</p>
             <br>
-            <h4 class="card-title"><b>{{p.Product_Name}}</b></h4> <br>
-            <h6>{{p.Weight}}</h6>
-            <h4 style="color: red;">&#8377; {{p.Price}}</h4>
-            <p>{{p.discount}}% Discount</p>
-            <p>&#8377; {{p.pricewithdiscount}}</p>
+            <h5><b>Benefits:</b></h5>
+            <p>{{p.benefits}}</p>
             <br>
-            <br> <br><br>
-        </div>
-        <h5> <b>Description :</b></h5>
-        <p>{{p.description}} </p> <br>
-        <h5><b>Ingredients :</b></h5>
-        <p>{{p.ingredients}}</p>
-        <br>
-        <h5><b>Benefits:</b></h5>
-        <p>{{p.benefits}}</p>
-        <br>
-        <h5>Availability :</h5>
-        <p *ngIf="p.status == 0 ">{{p.status}}</p>
+            <h5>Availability :</h5>
+            <p [ngStyle]="getStyle(p)">{{ p.status == '1' ? 'Product is Available' : 'Product is Not Available' }}</p>
 
+        </div>
+    </div>
+
+    <br><br>
+    <div class="container">
+        <div class="row" *ngIf="similarProducts.length > 0">
+            <h5>Similar Product : </h5>
+            <div class="col-md-2" *ngFor="let product of similarProducts">
+                <div>
+                    <a href="" target="_blank" [routerLink]="['/viewproduct',product.id]"><img style="width: 100%;"
+                            [src]="product.image" alt="Similar Product Image"></a>
+                    <br>
+                    <h6>{{ product.Product_Name }}</h6>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

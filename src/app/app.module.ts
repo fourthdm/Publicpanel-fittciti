@@ -91,6 +91,7 @@ import { BuildComponent } from './brand/build/build.component';
     LightgalleryModule,
     CarouselModule.forRoot(),
     HttpClientJsonpModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
