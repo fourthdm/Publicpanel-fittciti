@@ -5,11 +5,11 @@ import { RestService } from 'src/app/services/rest.service';
 import { WishlistService } from 'src/app/services/wishlist.service';
 
 @Component({
-  selector: 'app-healthinnvo8',
-  templateUrl: './healthinnvo8.component.html',
-  styleUrls: ['./healthinnvo8.component.css']
+  selector: 'app-san',
+  templateUrl: './san.component.html',
+  styleUrls: ['./san.component.css']
 })
-export class Healthinnvo8Component implements OnInit {
+export class SanComponent implements OnInit {
 
   @Input() Category_id: any;
   @Input() Brand_id: any;
@@ -42,7 +42,7 @@ export class Healthinnvo8Component implements OnInit {
   in2() {
     // const Brand_id = this._activeroute.snapshot.paramMap.get('Brand_id');
     // console.log(Brand_id);
-    this._rest.bybrandid(14).subscribe((data: any) => {
+    this._rest.bybrandid(7).subscribe((data: any) => {
       this.productList = data.data;
     }, (err: any) => {
       console.log(err);
@@ -78,6 +78,7 @@ export class Healthinnvo8Component implements OnInit {
       console.log(err);
     })
   }
+
   getStyle(product: any): any {
     if (product.status == "1") {
       return {
@@ -105,6 +106,7 @@ export class Healthinnvo8Component implements OnInit {
       this.Wishlist.splice(index, 1);
     }
   }
+
   removeFromWishlist(Product_id: any) {
     this._rest.removewishlist(Product_id).subscribe((data: any) => {
       console.log(data);
@@ -124,11 +126,10 @@ export class Healthinnvo8Component implements OnInit {
     };
   }
 
-
   addtowish(product: any) {
     this._wishlist.Addtowishlist(product.id).subscribe((cart: any) => {
       console.log(cart);
-      this.Wishlist = cart.data
+      this.Wishlist = cart.data;
     }, (err: any) => {
       console.log(err);
       // this._route.navigate(['/login']);

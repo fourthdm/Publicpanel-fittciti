@@ -80,28 +80,30 @@
       </div> -->
 
     </div>
-   <div class="div" style="display: flex;">
-    <div class="dropdown" >
-      <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="fa-regular fa-user"></i>
-      </a>
-      <ul class="dropdown-menu">
-        <li><a *ngIf="!isloggedIn" class="dropdown-item  btn btn-info btn-sm" type="button"
-            [routerLink]="['/register']">Register</a></li>
-        <li><a *ngIf="!isloggedIn" class="dropdown-item  btn btn-info btn-sm" type="button"
-            [routerLink]="['/login']">Log in</a></li>
-        <li><a class="dropdown-item  btn btn-info btn-sm" type="button" [routerLink]="['/details']">
-            Profile</a></li>
-      </ul>
+    <div class="div" style="display: flex; ">
+      <div class="dropdown">
+        <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-regular fa-user"></i>
+        </a> <br>
+        <p>User</p>
+        <ul class="dropdown-menu">
+          <li><a *ngIf="!isloggedIn" class="dropdown-item  btn btn-info btn-sm" type="button"
+              [routerLink]="['/register']">Register</a></li>
+          <li><a *ngIf="!isloggedIn" class="dropdown-item  btn btn-info btn-sm" type="button"
+              [routerLink]="['/login']">Log in</a></li>
+          <li><a class="dropdown-item  btn btn-info btn-sm" type="button" [routerLink]="['/details']">
+              Profile</a></li>
+          <li><a class="dropdown-item  btn btn-info btn-sm" type="button" (click)="logout()">
+              Log Out</a></li>
+        </ul>
+      </div>
+
+      <p style="padding-left: 15px;"><a href="" [routerLink]="['/cart']"><i class=" fa-solid fa-cart-plus
+      fa-xl"> </i> <sup style="color: red;">{{this._cart.cartItemList.length}}</sup></a> <br>
+        Cart</p>
+      <br>
+      <!-- <p style="padding-left: 1px;"><a href="" (click)="logout()"> <i class="fa-solid fa-power-off"></i> </a>
+      </p> -->
     </div>
-
-    <p style="padding-left: 1px;"><a href="" [routerLink]="['/cart']"> <i class=" fa-solid fa-cart-plus
-      fa-xl"> </i> <sup style="color: red;">{{this._cart.cartItemList.length}}</sup></a>
-    </p>
-
-    <p style="padding-left: 1px;"><a href="" (click)="logout()"> <i class="fa-solid fa-power-off"></i> </a>
-    </p>
-   </div>
-
   </div>
 </nav>

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BsnComponent } from './bsn.component';
+import { SanComponent } from './san.component';
 
-describe('BsnComponent', () => {
-  let component: BsnComponent;
-  let fixture: ComponentFixture<BsnComponent>;
+describe('SanComponent', () => {
+  let component: SanComponent;
+  let fixture: ComponentFixture<SanComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BsnComponent]
+      declarations: [SanComponent]
     });
-    fixture = TestBed.createComponent(BsnComponent);
+    fixture = TestBed.createComponent(SanComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

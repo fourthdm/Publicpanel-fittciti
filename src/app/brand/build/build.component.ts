@@ -32,16 +32,16 @@ export class BuildComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategory();
-    this.getproduct();
     this.getbrand();
     this.in2();
+    this.getproduct();
   }
 
 
   in2() {
     // const Brand_id = this._activeroute.snapshot.paramMap.get('Brand_id');
     // console.log(Brand_id);
-    this._rest.bybrandid(8).subscribe((data: any) => {
+    this._rest.bybrandid(24).subscribe((data: any) => {
       this.productList = data.data;
     }, (err: any) => {
       console.log(err);

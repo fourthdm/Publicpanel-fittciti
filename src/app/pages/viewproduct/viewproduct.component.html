@@ -65,7 +65,7 @@
 </div> -->
 
 <!-- //working -->
-<div class="main">
+<!-- <div class="main">
     <br><br> <br><br>
     <div class="container">
         <div class="row" *ngFor="let p of productList">
@@ -105,15 +105,101 @@
             </div>
             <div class="col-md-6">
                 <br>
+                <div class="row" *ngIf="similarProducts.length > 0">
+                    <h5>Similar Product : </h5>
+                    <div class="col-md-2" *ngFor="let product of similarProducts">
+                        <div>
+                            <select name="category_id" id="category_id" class="form-select" placeholder="All Category"
+                                aria-label="Multiple select example">
+                                <option value="All">{{p.Product_Name}}</option>
+                                <option *ngFor="let c of similarProducts" target="_blank"
+                                    [routerLink]="['/viewproduct',c.id]" [value]="c.id">
+                                    {{ product.Product_Name }}</option>
+                            </select>
+
+
+                            <div class="dropdown">
+                                <a class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    {{p.Product_Name}}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" target="_self"
+                                            [routerLink]="['/viewproduct',product.id]">{{product.Product_Name}}</a></li>
+                                </ul>
+                            </div>
+
+                            <select name="category_id" id="category_id" class="form-select" placeholder="All Category"
+                                aria-label="Multiple select example">
+                                <option value="All">{{p.Product_Name}}</option>
+                                <option *ngFor="let c of similarProducts" target="_blank"
+                                    [routerLink]="['/viewproduct',c.id]" [value]="c.id">
+                                    {{c.Product_Name}}</option>
+                            </select>
+
+                            <a href="" target="_blank" [routerLink]="['/viewproduct',product.id]"><img
+                                    style="width: 100%;" [src]="product.image" alt="Similar Product Image"></a>
+                            <br>
+                            <h6>{{ product.Product_Name }}</h6>
+                        </div>
+                    </div>
+                </div>
+                <select name="category_id" id="category_id" class="form-select" placeholder="All Category"
+                    aria-label="Multiple select example">
+                    <option value="All">{{p.Product_Name}}</option> 
+                    <option *ngFor="let c of similarProducts" target="_blank" [routerLink]="['/viewproduct',c.id]"
+                        [value]="c.id">
+                        {{c.Product_Name}}</option>
+                </select>
+
                 <h4 class="card-title"><b>{{p.Product_Name}}</b></h4> <br>
-                <h6>{{p.Weight}}</h6>
+                <h6>{{p.Weight}} <span>
+                        <div class="row" *ngIf="similarWeights.length > 0">
+                            <div class="col-md-2" *ngFor="let w of similarWeights">
+                                <div>
+                                    <span> <a href="" target="_blank" [routerLink]="['/viewproduct',p.id]">
+                                            <h6>{{p.Weight}}</h6>
+                                        </a></span>
+                                    <a href="" target="_blank" [routerLink]="['/viewproduct',w.id]">
+                                        <h6>{{w.Weight}}</h6>
+                                    </a>
+                                    <br>
+                                    <h6>{{ w.Weight }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </span></h6>
+
+
                 <h4 style="color: red;">&#8377; {{p.Price}}</h4>
                 <p>{{p.discount}}% Discount</p>
+
                 <p>&#8377; {{p.pricewithdiscount}}</p>
                 <br> <button class="btn btn-secondary" (click)="addToCart(p)">
                     <i class="fa-solid fa-cart-plus fa-lg"></i>
                     Add To Cart</button>
-                <br> <br><br>
+                <br><br>
+                <h5>Availability :</h5>
+                <p [ngStyle]="getStyle(p)">{{ p.status == '1' ? 'Product is Available' : 'Product is Not Available' }}
+                </p>
+                <br><br>
+                <div class="row" *ngIf="similarProducts.length > 0">
+                    <h5>Similar Product : </h5>
+                    <div class="col-md-12" *ngFor="let product of similarProducts">
+                        <div>
+                            <a href="" target="_blank" [routerLink]="['/viewproduct',product.id]"><img
+                                    style="width: 100%;" [src]="product.image" alt="Similar Product Image"></a>
+                            <br>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>{{p.Product_Name}}</option>
+                                <option value="product.id"><a href="" [routerLink]="['/viewproduct',product.id]"
+                                        target="_blank" rel="">{{ product.Product_Name }}</a></option>
+                            </select>
+                            <h6><a href="" [routerLink]="['/viewproduct',product.id]" target="_blank"
+                                    rel="noopener noreferrer">{{ product.Product_Name }}</a></h6>
+                        </div>
+                    </div>
+                </div>
             </div>
             <h5> <b>Description :</b></h5>
             <p>{{p.description}} </p> <br>
@@ -123,9 +209,6 @@
             <h5><b>Benefits:</b></h5>
             <p>{{p.benefits}}</p>
             <br>
-            <h5>Availability :</h5>
-            <p [ngStyle]="getStyle(p)">{{ p.status == '1' ? 'Product is Available' : 'Product is Not Available' }}</p>
-
         </div>
     </div>
 
@@ -141,6 +224,113 @@
                     <h6>{{ product.Product_Name }}</h6>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" *ngIf="similarWeights.length > 0">
+            <div class="col-md-2" *ngFor="let w of similarWeights">
+                <div>
+                    <a href="" target="_blank" [routerLink]="['/viewproduct',w.id]">{{w.Weight}}</a>
+                    <a href="" target="_blank" [routerLink]="['/viewproduct',w.id]">{{w.Weight}}</a>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> -->
+
+
+<div class="main">
+    <br><br><br><br>
+    <div class="container">
+        <div class="row" *ngFor="let p of productList">
+            <div class="col-md-6">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="1000">
+                            <img [src]="p.mainimage" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="1000">
+                            <img [src]="p.tableimage" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="1000">
+                            <img [src]="p.backimage" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <br><br>
+            </div>
+            <div class="col-md-6">
+
+                <h4><b>{{p.Product_Name}}</b></h4>
+                <div class="btn-group" *ngIf="similarProducts.length > 0" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-secondary" *ngFor="let product of similarProducts"
+                        [routerLink]="['/viewproduct', product.id]">
+                        <a [routerLink]="['/viewproduct',product.id]" style="color: white;">
+                            {{product.Product_Name}}</a></button>
+                </div>
+                <br>
+                <br>
+                <div class="btn-group" *ngIf="similarWeights.length > 0" role="group" aria-label="Basic example">
+                    <button class="btn btn-success">
+                        <h6>{{p.Weight}}</h6>
+                    </button>
+                    <button type="button" *ngFor="let w of similarWeights, let i=index" class="btn btn-light">
+                        <a [routerLink]="['/viewproduct', w.id]">
+                            {{ w.Weight }}
+                        </a>
+                    </button>
+                </div>
+                <h4 style="color: red;">&#8377; {{p.Price}}</h4>
+                <p> Discount Amount:₹ {{p.discountAmount}} </p>
+                <p>&#8377; {{p.pricewithdiscount}}</p>
+
+                <button class="btn btn-secondary" (click)="addToCart(p)">
+                    <i class="fa-solid fa-cart-plus fa-lg"></i>
+                    Add To Cart
+                </button>
+                <br>
+                <h5>Availability :</h5>
+                <p [ngStyle]="getStyle(p)">
+                    {{ p.status == '1' ? 'Product is Available' : 'Product is Not Available' }}
+                </p>
+                <br><br>
+            </div>
+            <div class="row" *ngIf="similarProducts.length > 0">
+                <h5>Similar Product : </h5>
+                <div class="col-md-2" *ngFor="let product of similarProducts">
+                    <a [routerLink]="['/viewproduct', product.id]">
+                        <img style="width: 100%;" [src]="product.image" alt="Similar Product Image">
+                    </a>
+                    <p>{{ product.Product_Name }}</p>
+                </div>
+            </div> <br>
+            <h5><b>Description :</b></h5>
+            <p>{{p.description}}</p>
+            <h5><b>Ingredients :</b></h5>
+            <p>{{p.ingredients}}</p>
+            <h5><b>Benefits:</b></h5>
+            <p>{{p.benefits}}</p>
         </div>
     </div>
 </div>

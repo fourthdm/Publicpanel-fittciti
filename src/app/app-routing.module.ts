@@ -9,8 +9,6 @@ import { In2Component } from './brand/in2/in2.component';
 import { InsanelabzComponent } from './brand/insanelabz/insanelabz.component';
 import { MuscletechComponent } from './brand/muscletech/muscletech.component';
 import { GncComponent } from './brand/gnc/gnc.component';
-import { BsnComponent } from './brand/bsn/bsn.component';
-import { Healthinnvo8Component } from './brand/healthinnvo8/healthinnvo8.component';
 import { OnComponent } from './brand/on/on.component';
 import { RcComponent } from './brand/rc/rc.component';
 import { MbComponent } from './brand/mb/mb.component';
@@ -28,6 +26,10 @@ import { PrivacypolicyComponent } from './footers/privacypolicy/privacypolicy.co
 import { TermsconditionComponent } from './footers/termscondition/termscondition.component';
 import { IsopureComponent } from './brand/isopure/isopure.component';
 import { BuildComponent } from './brand/build/build.component';
+import { DietComponent } from './goods/diet/diet.component';
+import { SupplementComponent } from './goods/supplement/supplement.component';
+import { HealthComponent } from './goods/health/health.component';
+import { SanComponent } from './brand/san/san.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: "full" },
@@ -49,15 +51,18 @@ const routes: Routes = [
   { path: 'privacy', component: PrivacypolicyComponent },
   { path: 'term', component: TermsconditionComponent },
 
+  { path: 'gooddiet', component: DietComponent },
+  { path: 'goodsupplement', component: SupplementComponent },
+  { path: 'goodhealth', component: HealthComponent },
 
+  { path: 'San', component: SanComponent },
+  
   { path: 'Dymatize', component: DymatizeComponent },
   { path: 'In2', component: In2Component },
   { path: 'Isopure', component: IsopureComponent },
   { path: 'Insanelabz', component: InsanelabzComponent },
   { path: 'Muscletech', component: MuscletechComponent },
   { path: 'Gnc', component: GncComponent },
-  { path: 'Bsn', component: BsnComponent },
-  { path: 'Healthinnva8', component: Healthinnvo8Component },
   { path: 'OptimumNutrition', component: OnComponent },
   { path: 'Roniniecoleman', component: RcComponent },
   { path: 'Muscleblaze', component: MbComponent },

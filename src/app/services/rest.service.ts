@@ -19,7 +19,8 @@ export class RestService {
 
   // url = 'http://localhost:5000';
   // url= 'https://adminpanel.fourthdm.com/node';
-  url= 'https://adminpanel.fittciti.in/api';
+  url = 'https://adminpanel.fittciti.in/api';
+  // url = 'https://adminpanel.fittciti.in/node';
 
   Login(data: any) {
     return this.http.post(this.url + '/login', data);
@@ -57,6 +58,10 @@ export class RestService {
     return this.http.get(this.url + '/api/products/similar/' + product_id);
   }
 
+  ByWeight(product_id: string) {
+    return this.http.get(this.url + '/similarWeight/' + product_id);  //Name Product with diffrent weight
+  }
+
   // bycategoryandbrand(data: any) {
   //   return this.http.post(this.url + '/Productbycategoryandbrand', data);
   // }
@@ -67,6 +72,15 @@ export class RestService {
 
   bybrandid(Brand_id: number) {
     return this.http.get(this.url + '/Productbybrand/' + Brand_id);
+  }
+
+  Bycategoryid(Category_id: number) {
+    return this.http.get(this.url + '/Productsby/' + Category_id);
+  }
+
+  BycategoryBrandid(Category_id: number, Brand_id: number) {   //Select a productby category_id and brand_id for specific brand
+    return this.http.get(`${this.url}/Productsby/${Category_id}/${Brand_id}`);
+    // return this.http.get(this.url + '/Productsby/' + Category_id + Brand_id);
   }
 
   // Addorder(Cart_id: number, orders: any) {
@@ -167,7 +181,6 @@ export class RestService {
     return this.http.put(this.url + '/Updateuser/' + data.User_id, data, { headers });
   }
 
-
   placeorder() {
     this._state.checktoken();
     const headers = new HttpHeaders({ 'x-access-token': this._state.token });
@@ -175,10 +188,18 @@ export class RestService {
     return this.http.post(this.url + '/place-order', { headers })
   }
 
-
   // searchProduct(query: string) {
   //   return this.http.get(this.url + '/Product?q=${query}')
   // }
 
+  // sendEmail(User_id: number) {
+  //   this._state.checktoken();
+  //   const headers = new HttpHeaders({ 'x-access-token': this._state.token });
+  //   return this.http.post(this.url + '/send-email', { User_id, headers })
+  // }
+
+  // sendEmail(User_id: number): Observable<any> {
+  //   return this.http.post(this.url + '/send-email', { User_id });
+  // }
 
 }

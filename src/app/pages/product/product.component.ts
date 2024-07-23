@@ -94,8 +94,6 @@ export class ProductComponent implements OnInit {
     this._cart.addtoCart(product);
   }
 
-
-
   toggleWishlist(product: any) {
     const index = this.Wishlist.findIndex(item => item.id === product.id);
     if (index === -1) {
@@ -145,7 +143,7 @@ export class ProductComponent implements OnInit {
   }
 
   getStyle(product: any): any {
-    if (product.status == "1") {
+    if (product.status == "1") {  
       return {
         'color': 'green',
         // 'text':'Product is in Stock',

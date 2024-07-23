@@ -57,9 +57,6 @@ export class CartComponent implements OnInit {
     this._cart.getProducts();
   }
 
-
-
-
   increaseQuantity(productId: string) {
     this._rest.increaseQuantity(productId).subscribe(
       response => {
@@ -186,6 +183,13 @@ export class CartComponent implements OnInit {
       }
     );
   }
+
+  // sendEmail() {
+  //   this._rest.sendEmail(1).subscribe(
+  //     response => console.log('Email sent successfully', response),
+  //     error => console.error('Error sending email', error)
+  //   );
+  // }
 
   paynow() {
     const razorpayoption = {

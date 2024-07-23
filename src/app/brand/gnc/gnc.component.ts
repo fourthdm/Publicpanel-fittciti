@@ -78,6 +78,7 @@ export class GncComponent implements OnInit {
       console.log(err);
     })
   }
+
   getStyle(product: any): any {
     if (product.status == "1") {
       return {
@@ -105,6 +106,7 @@ export class GncComponent implements OnInit {
       this.Wishlist.splice(index, 1);
     }
   }
+
   removeFromWishlist(Product_id: any) {
     this._rest.removewishlist(Product_id).subscribe((data: any) => {
       console.log(data);
@@ -124,11 +126,10 @@ export class GncComponent implements OnInit {
     };
   }
 
-
   addtowish(product: any) {
     this._wishlist.Addtowishlist(product.id).subscribe((cart: any) => {
       console.log(cart);
-      this.Wishlist = cart.data
+      this.Wishlist = cart.data;
     }, (err: any) => {
       console.log(err);
       // this._route.navigate(['/login']);

@@ -44,8 +44,10 @@ export class EnquiryComponent implements OnInit {
       Products: [[], [Validators.required]],
       Categories: [[], [Validators.required]],
       Brands: [[], [Validators.required]],
-      Message: ['']
+      Message: [''],
+      Review: ['', [Validators.required]],
     });
+
   }
 
   ngOnInit(): void {

@@ -13,9 +13,9 @@ export class DymatizeComponent implements OnInit {
 
   @Input() Category_id: any;
   @Input() Brand_id: any;
-  errormessage: string = " ";
 
   @Input() liked: boolean = false;
+  errormessage: string = " ";
 
   AllCategory: any[] = [];
   AllBrand: any[] = [];
@@ -25,7 +25,6 @@ export class DymatizeComponent implements OnInit {
   productList: any[] = [];
   pro: any;
 
-
   @Input() index = -1;
 
   constructor(private _rest: RestService, private _cart: CartService,
@@ -33,16 +32,15 @@ export class DymatizeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategory();
-    this.getproduct();
     this.getbrand();
     this.in2();
+    this.getproduct();
   }
-
 
   in2() {
     // const Brand_id = this._activeroute.snapshot.paramMap.get('Brand_id');
     // console.log(Brand_id);
-    this._rest.bybrandid(7).subscribe((data: any) => {
+    this._rest.bybrandid(4).subscribe((data: any) => {
       this.productList = data.data;
     }, (err: any) => {
       console.log(err);
@@ -180,6 +178,6 @@ export class DymatizeComponent implements OnInit {
         this.errormessage = "Error occurred while fetching data."; // Set errorMessage for errors
       }
     )
-}
+  }
 
 }

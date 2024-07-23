@@ -37,7 +37,6 @@ export class IsopureComponent {
     this.in2();
   }
 
-
   in2() {
     // const Brand_id = this._activeroute.snapshot.paramMap.get('Brand_id');
     // console.log(Brand_id);

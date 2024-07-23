@@ -69,9 +69,8 @@
                         <div class="col-lg-4 col-md-6 col-sm-6"
                             *ngFor="let p of productList| paginate: { itemsPerPage: 9, currentPage: pro }, let i=index ">
                             <div class="container">
-                                <div class="card">
+                                <div class="card" [routerLink]="['/viewproduct',p.id]">
                                     <div class="">
-
                                         <!-- <button (click)="addToWishlist(p.id)">Add to Wishlist</button> -->
                                         <!-- <i *ngIf="liked" (click)="addToWishlist(p.id)">Add to
                                                 Wishlist</i>
@@ -93,15 +92,15 @@
 
                                         <div class="card-body">
                                             <p [ngStyle]="getStyle(p)">{{ p.status == '1' ? '' : 'Out of Stock'}}</p>
-                                            <p>{{p.Product_Name}} <br> <span>{{p.Weight}}</span></p>
-                                            <p>Rs <s style="color: red;">{{p.Price}} </s> <span
-                                                    style="margin-left: 5%;">
-                                                    <b>{{p.discount}}%</b></span> </p>
-                                            <p>Rs {{p.pricewithdiscount}}</p>
+                                            <p>{{p.Product_Name}} <br> <span><b>{{p.Weight}}</b></span></p>
+                                            <p>&#8377; <s style="color: red;">{{p.Price}} </s>
+                                                <span style="float: right;">
+                                                    <b>{{p.discountAmount}} &#8377; Off</b></span>
+                                            </p>
+                                            <p>&#8377; <b>{{p.pricewithdiscount}}</b></p>
                                             <button class="btn btn-secondary" (click)="addToCart(p)">
                                                 <i class="fa-solid fa-cart-plus fa-lg"></i>
                                                 Add To Cart</button>
-
                                         </div>
                                     </div>
                                 </div> <br>
@@ -122,7 +121,7 @@
                             <h2>Product Not Found</h2>
                             <p>Please remove your filters to view all products.</p>
                             <button class="btn btn-success" (click)="getproduct()">All Products</button>
-                          </div>
+                        </div>
                     </div>
 
                     <div class="row" *ngIf="productList.length > 0"> <br>
@@ -152,10 +151,10 @@
 
                                         <div class="card-body">
                                             <p [ngStyle]="getStyle(p)">{{ p.status == '1' ? '' : 'Out of Stock'}}</p>
-                                            <p>{{p.Product_Name}} <br> <span>{{p.Weight}}</span></p>
+                                            <p>{{p.Product_Name}} <br> <span><b>{{p.Weight}}</b></span></p>
                                             <p>Rs <s style="color: red;">{{p.Price}} </s> <span
                                                     style="margin-left: 5%;">
-                                                    <b>{{p.discount}}%</b></span> </p>
+                                                    <b>{{p.discountAmount}} &#8377; Off</b></span> </p>
                                             <p>Rs {{p.pricewithdiscount}}</p>
                                             <button class="btn btn-secondary btn-sm" (click)="addToCart(p)">
                                                 <i class="fa-solid fa-cart-plus fa-lg"></i>

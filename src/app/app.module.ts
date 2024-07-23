@@ -19,13 +19,11 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { LoginComponent } from './common/login/login.component';
 import { EnquiryComponent } from './common/enquiry/enquiry.component';
 import { RegisterComponent } from './common/register/register.component';
-import { BsnComponent } from './brand/bsn/bsn.component';
 import { GncComponent } from './brand/gnc/gnc.component';
 import { In2Component } from './brand/in2/in2.component';
 import { DymatizeComponent } from './brand/dymatize/dymatize.component';
 import { MbComponent } from './brand/mb/mb.component';
 import { MuscletechComponent } from './brand/muscletech/muscletech.component';
-import { Healthinnvo8Component } from './brand/healthinnvo8/healthinnvo8.component';
 import { InsanelabzComponent } from './brand/insanelabz/insanelabz.component';
 import { RcComponent } from './brand/rc/rc.component';
 import { OnComponent } from './brand/on/on.component';
@@ -44,6 +42,12 @@ import { DeliveryComponent } from './footers/delivery/delivery.component';
 import { LightgalleryModule } from 'lightgallery/angular';
 import { IsopureComponent } from './brand/isopure/isopure.component';
 import { BuildComponent } from './brand/build/build.component';
+import { DietComponent } from './goods/diet/diet.component';
+import { SupplementComponent } from './goods/supplement/supplement.component';
+import { HealthComponent } from './goods/health/health.component';
+
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { SanComponent } from './brand/san/san.component';
 
 @NgModule({
   declarations: [
@@ -56,13 +60,11 @@ import { BuildComponent } from './brand/build/build.component';
     LoginComponent,
     EnquiryComponent,
     RegisterComponent,
-    BsnComponent,
     GncComponent,
     In2Component,
     DymatizeComponent,
     MbComponent,
     MuscletechComponent,
-    Healthinnvo8Component,
     InsanelabzComponent,
     RcComponent,
     OnComponent,
@@ -78,7 +80,11 @@ import { BuildComponent } from './brand/build/build.component';
     TermsconditionComponent,
     DeliveryComponent,
     IsopureComponent,
-    BuildComponent
+    BuildComponent,
+    DietComponent,
+    SupplementComponent,
+    HealthComponent,
+    SanComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +97,8 @@ import { BuildComponent } from './brand/build/build.component';
     LightgalleryModule,
     CarouselModule.forRoot(),
     HttpClientJsonpModule,
-    
+    // IvyCarouselModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
